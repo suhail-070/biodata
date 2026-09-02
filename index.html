@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shaikh Mohammad Suhail — Marriage Biodata</title>
+<meta name="description" content="Marriage biodata of Shaikh Mohammad Suhail, Software Engineer (Databases), Udgir.">
+<meta name="theme-color" content="#6B3F7C">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   MARRIAGE BIODATA — Shaikh Mohammad Suhail
+   Single file. HTML5 + CSS3 only. No JavaScript. No frameworks.
+
+   Theme: a black-and-white page — white paper, black ink, neutral greys —
+          with purple and deep-beige used for the typography and details.
+          The photographs stay in full colour.
+
+   ---------------------------------------------------------------------
+   HOW TO SWAP THE PHOTOS
+   ---------------------------------------------------------------------
+   All images live in the  photos/  folder next to this file:
+
+     photos/main-photo.jpg   -> faded full-page background  (set in §3)
+     photos/photo-01.jpg     -> hero portrait               (in the HTML)
+     photos/photo-02.jpg     -> Personal Details
+     photos/photo-03.jpg     -> Education & Career
+     photos/photo-04.jpg     -> Family Background
+     photos/photo-05.jpg     -> Siblings
+     photos/photo-06.jpg     -> Contact
+     photos/logo.png         -> the SUHAIL monogram (purple/ink version)
+     photos/logo-original.png-> your original green monogram, kept as a spare
+
+   To change a photo: drop a new file into photos/ with the SAME name.
+   Nothing else needs editing. Portrait-orientation photos look best.
+   ---------------------------------------------------------------------
+
+   CSS TABLE OF CONTENTS
+     1.  Variables
+     2.  Reset
+     3.  Body / Background photo
+     4.  Typography
+     5.  Main card
+     6.  Hero (Bismillah, monogram, name)
+     7.  Sections
+     8.  Personal metrics
+     9.  Information grid
+     10. Siblings
+     11. Contact
+     12. Photo system
+     13. Footer
+     14. Responsive design
+     15. Print styles
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. VARIABLES
+   ========================================================================== */
+:root{
+  color-scheme: light;
+
+  /* --- paper & ink  (black & white base) -------------------------------- */
+  --paper:        #F4F4F3;   /* page background, near-white  */
+  --card:         #FFFFFF;   /* card surface, white          */
+  --ink:          #1C1B1D;   /* near-black                   */
+  --ink-soft:     #6C6B6E;   /* secondary text, neutral grey */
+
+  /* --- accents: purple + deep beige -------------------------------------- */
+  --purple:       #6B3F7C;
+  --purple-dark:  #4D2D5A;
+  --purple-pale:  #F3EDF5;   /* very light purple fill */
+  --beige:        #8A7551;   /* deep beige — labels & eyebrows */
+  --beige-pale:   #F1EBE0;   /* light beige fill */
+  --line:         #E6E5E3;   /* neutral hairline */
+
+  /* --- type ------------------------------------------------------------- */
+  --serif:  "Playfair Display", "Iowan Old Style", Georgia, serif;
+  --sans:   "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --arabic: "Amiri", "Scheherazade New", "Traditional Arabic", serif;
+
+  /* --- shape & rhythm --------------------------------------------------- */
+  --card-radius: 28px;
+  --photo-radius: 16px;
+  --card-max: 1120px;
+  --pad-x: 76px;
+  --section-gap: 74px;
+
+  /* --- elevation -------------------------------------------------------- */
+  --shadow-card:  0 30px 80px rgba(28,27,29,.09), 0 2px 8px rgba(28,27,29,.04);
+  --shadow-photo: 0 14px 35px rgba(28,27,29,.15);
+  --shadow-soft:  0 6px 18px rgba(28,27,29,.05);
+
+  /* BACKGROUND PHOTO — how faded the page background photo is.
+     Lower = fainter. Raise it a little if you want the photo more visible. */
+  --bg-photo-opacity: .70;
+}
+
+
+/* ==========================================================================
+   2. RESET
+   ========================================================================== */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body,h1,h2,h3,h4,p,ul,ol,li,figure,dl,dd{ margin:0; padding:0; }
+ul,ol{ list-style:none; }
+img{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; }
+
+
+/* ==========================================================================
+   3. BODY / BACKGROUND PHOTO
+   ==========================================================================
+   One large photograph behind the whole page: greyscaled and very faded,
+   under a white wash so text always stays perfectly readable. (This is the
+   only greyscaled image — the photographs on the page keep their colour.)
+
+   >>> REPLACE  photos/main-photo.jpg  WITH YOUR OWN MAIN PHOTOGRAPH <<<
+   If the file is missing, the page simply shows clean white paper.
+   -------------------------------------------------------------------------- */
+body{
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.62;
+  font-size: 16px;
+  padding: 56px 24px 40px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient( rgba(244,244,243,.88), rgba(244,244,243,.94) ),
+    url("photos/main-photo.jpg") center top / cover no-repeat;   /* <-- your main photo */
+  filter: grayscale(100%) contrast(105%);
+  opacity: var(--bg-photo-opacity);
+}
+
+/* faint purple tint + white vignette layered over the background photo */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1100px 700px at 50% -10%, rgba(107,63,124,.06), transparent 70%),
+    linear-gradient(180deg, rgba(244,244,243,.25), rgba(244,244,243,.70));
+}
+
+
+/* ==========================================================================
+   4. TYPOGRAPHY
+   ========================================================================== */
+.eyebrow{
+  font-size: 11px;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+.section-title{
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: .005em;
+  color: var(--ink);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.section-head{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 34px;
+}
+/* slim purple bar to the left of every section title */
+.section-head::before{
+  content:"";
+  width: 3px;
+  height: 26px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--purple), var(--purple-dark));
+}
+.section-head::after{
+  content:"";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--line), rgba(230,229,227,0));
+}
+
+/* small uppercase field labels — deep beige */
+.label{
+  font-size: 10.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--beige);
+  font-weight: 600;
+}
+.value{
+  font-size: 16.5px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.value--strong{ font-weight: 500; }
+.note{
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* links */
+a.link{
+  color: var(--purple-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(107,63,124,.30);
+  padding-bottom: 1px;
+  transition: border-color .2s ease, color .2s ease;
+  overflow-wrap: anywhere;
+}
+a.link:hover{ color: var(--purple); border-bottom-color: var(--purple); }
+a:focus-visible{
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* the ──── ✦ ──── ornament */
+.ornament{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--purple);
+  font-size: 11px;
+}
+.ornament::before,.ornament::after{
+  content:"";
+  width: 54px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(107,63,124,0), rgba(107,63,124,.45), rgba(107,63,124,0));
+}
+
+
+/* ==========================================================================
+   5. MAIN CARD
+   ========================================================================== */
+.page{
+  max-width: var(--card-max);
+  margin: 0 auto;
+  position: relative;
+}
+
+.card{
+  background: rgba(255,255,255,.93);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(230,229,227,.95);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-card);
+  padding: 56px var(--pad-x) 54px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* thin purple hairline along the very top of the card */
+.card::before{
+  content:"";
+  position: absolute;
+  top:0; left:0; right:0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple), rgba(138,117,81,.45));
+}
+
+
+/* ==========================================================================
+   6. HERO  (Bismillah, monogram, name)
+   ========================================================================== */
+
+/* --- centred opening band: Bismillah + monogram ------------------------- */
+.hero__top{
+  text-align: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 48px;
+}
+
+.bismillah{
+  font-family: var(--arabic);
+  font-size: clamp(26px, 3.6vw, 38px);
+  line-height: 1.9;
+  color: var(--purple-dark);
+  direction: rtl;
+  margin-bottom: 22px;
+  font-weight: 400;
+}
+
+/* Replace photos/logo.png if you ever change the monogram */
+.hero__logo{
+  width: 200px;
+  margin: 0 auto;
+  opacity: .95;
+}
+
+/* --- name block + portrait ---------------------------------------------- */
+.hero__main{
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 54px;
+  align-items: center;
+}
+
+.hero__eyebrow{ margin-bottom: 18px; display: block; }
+
+.hero__name{
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.2vw, 60px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.012em;
+  color: var(--ink);
+}
+
+.hero__rule{
+  width: 62px;
+  height: 2px;
+  margin: 26px 0 22px;
+  border: 0;
+  background: linear-gradient(90deg, var(--purple), rgba(138,117,81,.35));
+  border-radius: 2px;
+}
+
+.hero__role{
+  font-size: 17px;
+  color: var(--ink-soft);
+  letter-spacing: .01em;
+}
+.hero__role strong{ color: var(--ink); font-weight: 500; }
+
+.hero__dob{
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--purple-dark);
+}
+
+.hero__divider{ margin: 56px 0 var(--section-gap); }
+
+
+/* ==========================================================================
+   7. SECTIONS
+   ========================================================================== */
+.section{ margin-bottom: var(--section-gap); }
+.section:last-of-type{ margin-bottom: 18px; }
+
+/* a section that carries a photo beside its content */
+.section--photo{
+  display: grid;
+  grid-template-columns: 1fr 232px;
+  gap: 52px;
+  align-items: start;
+}
+.section--photo.is-left{ grid-template-columns: 232px 1fr; }
+.section--photo.is-left > .section__body{ order: 2; }
+.section--photo.is-left > .photo-frame{ order: 1; }
+
+.section__body{ min-width: 0; }
+
+
+/* ==========================================================================
+   8. PERSONAL METRICS  (Date of Birth / Height / Blood Group)
+   ========================================================================== */
+.metrics{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.metric{
+  background: var(--purple-pale);
+  border: 1px solid rgba(107,63,124,.12);
+  border-radius: 18px;
+  padding: 24px 24px 22px;
+  text-align: center;
+}
+.metric__label{
+  font-size: 10.5px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--purple);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.metric__value{
+  font-family: var(--serif);
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+}
+/* slightly smaller so a long date sits on one comfortable line */
+.metric__value--sm{ font-size: 20px; }
+
+
+/* ==========================================================================
+   9. INFORMATION GRID  (Education & Career, Family Background)
+   ========================================================================== */
+.info-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 30px 46px;
+}
+.info-item{
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+.info-item .label{ display: block; margin-bottom: 6px; }
+.info-item .note{ margin-top: 3px; }
+.info-item--wide{ grid-column: 1 / -1; }
+
+
+/* ==========================================================================
+   10. SIBLINGS
+   ========================================================================== */
+.siblings{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 26px 46px;
+  counter-reset: sib;
+}
+.sibling{
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(230,229,227,.9);
+}
+.sibling:nth-last-child(-n+2){ border-bottom: 0; padding-bottom: 0; }
+
+.sibling::before{
+  counter-increment: sib;
+  content: counter(sib, decimal-leading-zero);
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--beige);
+  min-width: 22px;
+}
+.sibling__name{
+  font-size: 17px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.sibling__status{
+  font-size: 11px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 3px;
+}
+.sibling__detail{
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin-top: 5px;
+}
+
+
+/* ==========================================================================
+   11. CONTACT
+   ========================================================================== */
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+}
+.contact-card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px 26px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-card--wide{ grid-column: 1 / -1; }
+
+.contact-card__icon{
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--beige-pale);
+  display: grid;
+  place-items: center;
+  color: var(--purple);
+  margin-top: 2px;
+}
+.contact-card__icon svg{ width: 16px; height: 16px; }
+
+.contact-card__body .label{ display: block; margin-bottom: 7px; }
+.contact-card__body address{
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.contact-card__body p + p{ margin-top: 2px; }
+
+
+/* ==========================================================================
+   12. PHOTO SYSTEM
+   ==========================================================================
+   Every photo sits in a .photo-frame: a printed-photo mount with a soft
+   shadow and a slight rotation. Each .photo-N gets its own size, rotation
+   and nudge so the composition looks hand-placed, never messy.
+
+   The photographs are shown in their original colour — they are the only
+   colour on an otherwise black-and-white page, which is what makes them
+   stand out.
+
+   If a photo file is missing, the frame still renders as a clean tinted
+   card with a small "PHOTO" label instead of a broken image.
+   -------------------------------------------------------------------------- */
+.photo-frame{
+  position: relative;
+  background: #FFFFFF;                 /* white photo mount */
+  padding: 7px;
+  border-radius: var(--photo-radius);
+  box-shadow: var(--shadow-photo);
+  border: 1px solid rgba(230,229,227,.9);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* placeholder shown underneath the photo (visible only if the file is absent) */
+.photo-frame::after{
+  content:"PHOTO";
+  position: absolute;
+  inset: 7px;
+  z-index: 0;
+  border-radius: calc(var(--photo-radius) - 6px);
+  background: var(--beige-pale);
+  border: 1px dashed rgba(138,117,81,.32);
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  letter-spacing: .28em;
+  color: rgba(138,117,81,.8);
+}
+
+.photo-frame img{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: calc(var(--photo-radius) - 6px);
+  background: var(--beige-pale);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+/* --- individual placements ------------------------------------------------ */
+
+/* 1 — hero portrait, the largest photo on the page */
+.photo-1{ transform: rotate(2deg); }
+.photo-1 img{ aspect-ratio: 3 / 4.1; object-position: center 32%; }
+
+/* 2 — beside Personal Details */
+.photo-2{ transform: rotate(-3deg) translateY(6px); border-radius: 18px; }
+
+/* 3 — beside Education & Career */
+.photo-3{ transform: rotate(2deg) translateY(10px); }
+
+/* 4 — beside Family Background */
+.photo-4{ transform: rotate(-2deg) translateY(4px); }
+.photo-4 img{ object-position: center 30%; }
+
+/* 5 — beside Siblings */
+.photo-5{ transform: rotate(3deg) translateY(8px); border-radius: 14px; }
+.photo-5 img{ object-position: center 28%; }
+
+/* 6 — below Contact, centred */
+.photo-6{
+  transform: rotate(-1deg);
+  max-width: 214px;
+  margin: 40px auto 0;
+}
+.photo-6 img{ object-position: center 18%; }
+
+/* optional caption under a photo — currently unused */
+.photo-frame figcaption{
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 9px 2px 3px;
+}
+
+
+/* ==========================================================================
+   13. FOOTER
+   ========================================================================== */
+.footer{
+  text-align: center;
+  padding: 44px 20px 10px;
+}
+.footer__rule{
+  width: 44px;
+  height: 2px;
+  margin: 0 auto 20px;
+  border: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(138,117,81,.4), var(--purple), rgba(138,117,81,.4));
+}
+.footer__name{
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--ink);
+  letter-spacing: .01em;
+}
+.footer__sub{
+  font-size: 10.5px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--beige);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+
+/* ==========================================================================
+   14. RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* ---- large laptop ---- */
+@media (max-width: 1080px){
+  :root{ --pad-x: 56px; --section-gap: 62px; }
+  .hero__main{ grid-template-columns: 1fr 260px; gap: 42px; }
+}
+
+/* ---- tablet ---- */
+@media (max-width: 900px){
+  :root{ --pad-x: 44px; --section-gap: 56px; --card-radius: 24px; }
+  body{ padding: 34px 18px 30px; }
+
+  .section--photo,
+  .section--photo.is-left{ grid-template-columns: 1fr 200px; gap: 36px; }
+
+  .siblings{ gap: 22px 34px; }
+  .info-grid{ gap: 26px 34px; }
+}
+
+/* ---- small tablet / large phone: photos drop into normal flow ---- */
+@media (max-width: 760px){
+  .hero__main{
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .hero__portrait{
+    order: -1;                 /* portrait sits above the name */
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* section photos become centred, in-flow elements — never overlapping.
+     The heading always comes first, the photo always sits below the text. */
+  .section--photo,
+  .section--photo.is-left{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .section--photo > .section__body,
+  .section--photo.is-left > .section__body{ order: 1; }
+
+  .section--photo > .photo-frame,
+  .section--photo.is-left > .photo-frame{
+    order: 2;
+    max-width: 230px;
+    margin: 34px auto 0;
+  }
+}
+
+/* ---- phone ---- */
+@media (max-width: 560px){
+  :root{ --pad-x: 24px; --section-gap: 46px; --card-radius: 20px; }
+  body{ padding: 22px 14px 24px; font-size: 15.5px; }
+  .card{ padding: 36px var(--pad-x) 38px; }
+
+  .hero__top{ padding-bottom: 30px; margin-bottom: 34px; }
+  /* keeps the Bismillah on a single line on a phone */
+  .bismillah{ font-size: 21px; line-height: 1.9; margin-bottom: 18px; }
+  .hero__logo{ width: 166px; }
+
+  .hero__divider{ margin: 40px 0 var(--section-gap); }
+  .section-title{ font-size: 25px; }
+  .section-head{ margin-bottom: 26px; gap: 14px; }
+
+  .metrics{ grid-template-columns: 1fr; gap: 12px; }
+  .metric{ display: flex; align-items: baseline; justify-content: space-between; text-align: left; padding: 18px 20px; }
+  .metric__label{ margin-bottom: 0; }
+  .metric__value{ font-size: 21px; }
+
+  .info-grid,
+  .siblings,
+  .contact-grid{ grid-template-columns: 1fr; }
+
+  .sibling{ border-bottom: 1px solid rgba(230,229,227,.9); padding-bottom: 20px; }
+  .sibling:last-child{ border-bottom: 0; padding-bottom: 0; }
+
+  .section--photo > .photo-frame,
+  .section--photo.is-left > .photo-frame{ max-width: 200px; }
+  .photo-6{ max-width: 200px; }
+
+  .contact-card{ padding: 20px; }
+  .ornament::before,.ornament::after{ width: 38px; }
+}
+
+/* ---- reduced motion ---- */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}
+
+
+/* ==========================================================================
+   15. PRINT STYLES   (File ▸ Print ▸ Save as PDF)
+   ========================================================================== */
+@media print{
+  @page{ size: A4; margin: 14mm; }
+
+  body{
+    padding: 0;
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+  body::before,
+  body::after{ display: none !important; }   /* no background photo in print */
+
+  .card{
+    box-shadow: none;
+    border: 1px solid #E0DFDD;
+    border-radius: 0;
+    padding: 0 0 10mm;
+    background: #fff;
+    backdrop-filter: none;
+  }
+  .card::before{ display: none; }
+
+  .photo-frame{
+    box-shadow: none;
+    transform: none !important;
+    border: 1px solid #E0DFDD;
+  }
+  .photo-frame::after{ display: none; }
+
+  .hero__top{ padding-bottom: 6mm; margin-bottom: 8mm; }
+  .bismillah{ font-size: 20pt; }
+  .hero__logo{ width: 150px; }
+
+  .hero__main{ grid-template-columns: 1fr 190px; gap: 26px; }
+  .hero__name{ font-size: 30pt; }
+  .hero__divider{ margin: 18px 0 10mm; }
+
+  :root{ --section-gap: 9mm; }
+
+  .section,
+  .metric,
+  .contact-card,
+  .sibling,
+  .info-item{ break-inside: avoid; page-break-inside: avoid; }
+
+  .section-head{ break-after: avoid; page-break-after: avoid; }
+
+  .metric{ background: #F3EEF5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .contact-card{ box-shadow: none; }
+
+  a.link{ border-bottom: 0; color: #4D2D5A; }
+  .footer{ padding-top: 10mm; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+<div class="card">
+
+  <!-- ====================================================================
+       HERO — Bismillah, monogram, name
+       ==================================================================== -->
+  <header class="hero">
+
+    <div class="hero__top">
+      <p class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+      <!-- Replace photos/logo.png with your own monogram if you ever change it -->
+      <img src="photos/logo.png" alt="Suhail monogram" class="hero__logo" width="640" height="347">
+    </div>
+
+    <div class="hero__main">
+      <div class="hero__body">
+        <span class="eyebrow hero__eyebrow">Marriage Biodata</span>
+
+        <h1 class="hero__name">Shaikh Mohammad<br>Suhail</h1>
+        <hr class="hero__rule">
+
+        <p class="hero__role"><strong>Software Engineer</strong> &middot; Databases</p>
+        <p class="hero__dob">Born 07 February 2000</p>
+      </div>
+
+      <!-- Replace photos/photo-01.jpg with your main portrait -->
+      <figure class="photo-frame photo-1 hero__portrait">
+        <img src="photos/photo-01.jpg" alt="Portrait of Shaikh Mohammad Suhail">
+      </figure>
+    </div>
+
+  </header>
+
+  <div class="ornament hero__divider" aria-hidden="true">&#10022;</div>
+
+
+  <main>
+
+    <!-- ==================================================================
+         PERSONAL DETAILS
+         ================================================================== -->
+    <section class="section section--photo is-left" aria-labelledby="h-personal">
+      <!-- Replace photos/photo-02.jpg -->
+      <figure class="photo-frame photo-2">
+        <img src="photos/photo-02.jpg" alt="Shaikh Mohammad Suhail standing outdoors">
+      </figure>
+
+      <div class="section__body">
+        <div class="section-head">
+          <h2 class="section-title" id="h-personal">Personal Details</h2>
+        </div>
+
+        <div class="metrics">
+          <article class="metric">
+            <p class="metric__label">Date of Birth</p>
+            <p class="metric__value metric__value--sm">07 February 2000</p>
+          </article>
+          <article class="metric">
+            <p class="metric__label">Height</p>
+            <p class="metric__value">5&prime; 7&Prime;</p>
+          </article>
+          <article class="metric">
+            <p class="metric__label">Blood Group</p>
+            <p class="metric__value">O+</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================================================================
+         EDUCATION & CAREER
+         ================================================================== -->
+    <section class="section section--photo" aria-labelledby="h-education">
+      <div class="section__body">
+        <div class="section-head">
+          <h2 class="section-title" id="h-education">Education &amp; Career</h2>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item info-item--wide">
+            <span class="label">Qualification</span>
+            <p class="value value--strong">Bachelor of Engineering (B.E. &ndash; Mechanical)</p>
+          </div>
+
+          <div class="info-item info-item--wide">
+            <span class="label">University</span>
+            <p class="value">Dr. Babasaheb Ambedkar Marathwada University, Aurangabad</p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Occupation</span>
+            <p class="value value--strong">Software Engineer (Databases)</p>
+            <p class="note">CloudRaft &middot;
+              <a class="link" href="https://www.cloudraft.io/" target="_blank" rel="noopener">cloudraft.io</a>
+            </p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Work Location</span>
+            <p class="value">Work From Home &mdash; Udgir</p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Previous Experience</span>
+            <p class="value">TCS, Mumbai</p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">LinkedIn</span>
+            <p class="value">
+              <a class="link" href="https://www.linkedin.com/in/suhail3257" target="_blank" rel="noopener">linkedin.com/in/suhail3257</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Replace photos/photo-03.jpg -->
+      <figure class="photo-frame photo-3">
+        <img src="photos/photo-03.jpg" alt="Shaikh Mohammad Suhail walking outdoors">
+      </figure>
+    </section>
+
+
+    <!-- ==================================================================
+         FAMILY BACKGROUND
+         ================================================================== -->
+    <section class="section section--photo is-left" aria-labelledby="h-family">
+      <!-- Replace photos/photo-04.jpg -->
+      <figure class="photo-frame photo-4">
+        <img src="photos/photo-04.jpg" alt="Shaikh Mohammad Suhail on a forest trail">
+      </figure>
+
+      <div class="section__body">
+        <div class="section-head">
+          <h2 class="section-title" id="h-family">Family Background</h2>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Father</span>
+            <p class="value value--strong">Shaikh Mohammad Saleem</p>
+            <p class="note">Retired Field Manager, Huma Hatcheries, Udgir<br>
+               Currently owns a retail chicken business</p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Mother</span>
+            <p class="value value--strong">Shaikh Gausiya Saleem</p>
+            <p class="note">Homemaker</p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Paternal Grandfather</span>
+            <p class="value">Late Shaikh Mohammad Hussain</p>
+            <p class="note">Origin: Wahad, Tq. Kandhar &ndash; 431742</p>
+          </div>
+
+          <div class="info-item">
+            <span class="label">Maternal Grandfather</span>
+            <p class="value">Shaikh Abdul Razzaque</p>
+            <p class="note">Origin: Hippalgaon, Tq. Ahmadpur &ndash; 413531</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================================================================
+         SIBLINGS
+         ================================================================== -->
+    <section class="section section--photo" aria-labelledby="h-siblings">
+      <div class="section__body">
+        <div class="section-head">
+          <h2 class="section-title" id="h-siblings">Siblings</h2>
+        </div>
+
+        <ol class="siblings">
+          <li class="sibling">
+            <div>
+              <p class="sibling__name">Sumaiyya Imran</p>
+              <p class="sibling__status">Married</p>
+              <p class="sibling__detail">D.El.Ed &middot; Pursuing B.A.</p>
+            </div>
+          </li>
+          <li class="sibling">
+            <div>
+              <p class="sibling__name">Shaikh Sana</p>
+              <p class="sibling__status">Unmarried</p>
+              <p class="sibling__detail">D.El.Ed &middot; Pursuing B.A.</p>
+            </div>
+          </li>
+          <li class="sibling">
+            <div>
+              <p class="sibling__name">Mohammad Sajid</p>
+              <p class="sibling__status">Unmarried</p>
+              <p class="sibling__detail">Pursuing B.Com &middot; Preparing for CMA</p>
+            </div>
+          </li>
+          <li class="sibling">
+            <div>
+              <p class="sibling__name">Mohammad Sadiq</p>
+              <p class="sibling__status">Unmarried</p>
+              <p class="sibling__detail">NEET Aspirant</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Replace photos/photo-05.jpg -->
+      <figure class="photo-frame photo-5">
+        <img src="photos/photo-05.jpg" alt="Shaikh Mohammad Suhail seated outdoors">
+      </figure>
+    </section>
+
+
+    <!-- ==================================================================
+         CONTACT
+         ================================================================== -->
+    <section class="section" aria-labelledby="h-contact">
+      <div class="section-head">
+        <h2 class="section-title" id="h-contact">Contact</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <article class="contact-card contact-card--wide">
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </span>
+          <div class="contact-card__body">
+            <span class="label">Address</span>
+            <address>
+              Banshelki Road, Near Aqsa Masjid,<br>
+              Udgir, Dist. Latur &ndash; 413517
+            </address>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2Z"/>
+            </svg>
+          </span>
+          <div class="contact-card__body">
+            <span class="label">Mobile</span>
+            <p class="value"><a class="link" href="tel:+919604274241">+91 96042 74241</a></p>
+            <p class="value"><a class="link" href="tel:+917038488253">+91 70384 88253</a></p>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/>
+            </svg>
+          </span>
+          <div class="contact-card__body">
+            <span class="label">Email</span>
+            <p class="value">
+              <a class="link" href="mailto:mohammadsuhail3257@gmail.com">mohammadsuhail3257@gmail.com</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="contact-card contact-card--wide">
+          <span class="contact-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1"/>
+            </svg>
+          </span>
+          <div class="contact-card__body">
+            <span class="label">Instagram</span>
+            <p class="value">
+              <a class="link" href="https://www.instagram.com/sikandar.3257/" target="_blank" rel="noopener">@sikandar.3257</a>
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Replace photos/photo-06.jpg -->
+      <figure class="photo-frame photo-6">
+        <img src="photos/photo-06.jpg" alt="Shaikh Mohammad Suhail on a misty morning">
+      </figure>
+    </section>
+
+  </main>
+
+
+  <!-- ====================================================================
+       FOOTER
+       ==================================================================== -->
+  <footer class="footer">
+    <hr class="footer__rule">
+    <p class="footer__name">Shaikh Mohammad Suhail</p>
+    <p class="footer__sub">Marriage Biodata</p>
+  </footer>
+
+</div><!-- /.card -->
+</div><!-- /.page -->
+</body>
+</html>
